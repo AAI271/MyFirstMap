@@ -2,19 +2,11 @@ import React from 'react';
 import {Table} from 'antd';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchRoute} from "../../store/routingReducer";
-import {DomUtil} from "leaflet";
-import addClass = DomUtil.addClass;
+import {IRoute, IState} from "../../models/models";
 
 
-interface DataType {
-    key: string;
-    name: string;
-    point1: number[];
-    point2: number[];
-    point3: number[];
-}
 
-const columns: ({ dataIndex: string; title: string; render: (text) => JSX.Element; key: string } | { dataIndex: string; title: string; key: string } )[] = [
+const columns: ({ dataIndex: string; title: string; render: (text:string) => JSX.Element; key: string } | { dataIndex: string; title: string; key: string } )[] = [
     {
         title: 'Name',
         dataIndex: 'name',
@@ -44,11 +36,11 @@ const columns: ({ dataIndex: string; title: string; render: (text) => JSX.Elemen
 
 
 const TableRoutes: React.FC = () => {
-    const data: DataType[] = useSelector(state => state.routeReducer.routes)
+    const data: IRoute[] = useSelector((state:IState) => state.routeReducer.routes)
     const dispatch = useDispatch()
 
     return (
-        <Table pagination={false} onRow={(record, rowIndex) => {
+        <Table pagination={false} onRow={(record) => {
             return{
                 onClick: ()=>{
                     dispatch(fetchRoute([record.point1,record.point2,record.point3]))

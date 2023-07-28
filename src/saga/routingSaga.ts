@@ -1,17 +1,14 @@
 import { put, takeEvery, call } from "redux-saga/effects";
-import { Action } from "redux"; // Import the Action type from redux
 import {FETCH_ROUTE, setMessage, setRouting} from "../store/routingReducer";
 import {getRouting} from "../services/get-routing/get-routing";
-import {ApiData} from "../services/get-routing/routing-model";
 
-
-function* fetchRoutingWorker(action: Action): Generator {
+function* fetchRoutingWorker(action:any): Generator {
     const coordinates = action.payload.map((coord: [number, number]) => coord.join(',')).join(';');
     const url = `/route/v1/driving/${coordinates}?overview=false`;
 
     try {
-        const data: ApiData = yield call(getRouting, url);
-        yield put(setRouting(data.waypoints.map(item => {
+        const data:any = yield call(getRouting, url);
+        yield put(setRouting(data.waypoints.map((item:any) => {
             return{
                 location:item.location,
                 name:item.name

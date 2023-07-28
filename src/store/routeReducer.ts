@@ -1,4 +1,6 @@
-const defaultState = {
+import {IRouteReducer} from "../models/models";
+
+const defaultState:IRouteReducer = {
     routes: [
         {
             key: '1',
@@ -25,7 +27,7 @@ const defaultState = {
 
 export const ADD_ROUTE = "ADD_ROUTE"
 
-export default function routeReducer(state = defaultState, action) {
+export default function routeReducer(state = defaultState, action:any) {
     switch (action.type) {
         case ADD_ROUTE:
             return {...state, count: state.routes.push(action.payload)}
@@ -33,4 +35,4 @@ export default function routeReducer(state = defaultState, action) {
     return state
 }
 
-export const addRouteCreator = payload => ({type: ADD_ROUTE,payload})
+// export const addRouteCreator = payload => ({type: ADD_ROUTE,payload})

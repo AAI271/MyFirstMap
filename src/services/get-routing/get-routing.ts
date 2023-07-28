@@ -1,10 +1,10 @@
 import axiosInstance from "../../http/axios";
 import {AxiosResponse} from "axios";
-import {ApiData} from "./routing-model";
+import { IRouting} from "../../models/models";
 
-export const getRouting = async (url: string): Promise<ApiData> => {
+export const getRouting:(url: string) => Promise<IRouting> = async (url: string): Promise<IRouting> => {
     try {
-        const response: AxiosResponse<ApiData> = await axiosInstance.get(url);
+        const response: AxiosResponse<IRouting> = await axiosInstance.get(url);
         return response.data;
     } catch (error) {
         throw new Error('Network response was not ok.');
