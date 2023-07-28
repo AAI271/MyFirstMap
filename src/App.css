@@ -1,0 +1,17 @@
+#root {
+  margin: 0;
+  text-align: center;
+  width: 100vw;
+  padding: 0;
+}
+
+/*sizing of map container*/
+.leaflet-container {
+  width: 50vw;
+  height: 60vh;
+}
+.container{
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}

@@ -1,0 +1,22 @@
+.message{
+  background-color: #ffffff;
+  color: black;
+  text-align: left;
+  padding:5px 15px;
+  border-radius: 10px;
+  width: 50%;
+  min-height: 200px;
+  margin-top: 50px;
+}
+.message-true{
+  border: 3px solid green;
+  h4{
+    color: green;
+  }
+}
+.message-false{
+  border: 3px solid red;
+  h4{
+    color: red;
+  }
+}
